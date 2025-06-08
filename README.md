@@ -1,1 +1,1 @@
-https://star.github.io
+https://thegreatsinofthestars.github.io/Star.github.io/
