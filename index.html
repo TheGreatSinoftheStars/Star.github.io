@@ -114,6 +114,31 @@
   <footer>
     MAU TAU APA DI BALIK KOTAK DAN SEGITIGA? BUKA LAH LINK INI https://thegreatsinofthestars.github.io/-.gihub.io/
   </footer>
+<div class="sky" id="sky"></div>
 
+<script>
+const sky = document.getElementById('sky');
+
+// bintang statis (berkelip)
+for (let i = 0; i < 80; i++) {
+  const star = document.createElement('div');
+  star.classList.add('star');
+  star.style.top = Math.random() * 100 + 'vh';
+  star.style.left = Math.random() * 100 + 'vw';
+  star.style.animationDelay = Math.random() * 3 + 's';
+  sky.appendChild(star);
+}
+
+// bintang jatuh
+for (let i = 0; i < 6; i++) {
+  const s = document.createElement('div');
+  s.classList.add('shooting');
+  s.style.top = Math.random() * 30 + 'vh';
+  s.style.left = Math.random() * 100 + 'vw';
+  s.style.animationDelay = Math.random() * 5 + 's';
+  s.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
+  sky.appendChild(s);
+}
+  </script>
 </body>
 </html>
