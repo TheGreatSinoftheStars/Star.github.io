@@ -1,12 +1,17 @@
+
 body {
-  background-color: #0b0c10;
+  background: radial-gradient(ellipse at top, #0b0d26 0%, #000 80%);
   color: #c5c6c7;
   font-family: 'Georgia', serif;
   margin: 0;
   padding: 2rem;
-  line-height: 1.8;
+  line-height: 2;
+  overflow: hidden;
+  position: relative;
+  min-height: 100vh;
 }
 
+/* Header dan teks */
 header {
   text-align: center;
   margin-bottom: 2rem;
@@ -15,6 +20,14 @@ header {
 header h1 {
   font-size: 2.5rem;
   color: #ffffff;
+  text-shadow: 0 0 10px #66fcf1;
+}
+
+main {
+  max-width: 800px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
 }
 
 img {
@@ -22,12 +35,9 @@ img {
   margin: 2rem auto;
   max-width: 100%;
   height: auto;
-  border: 3px solid #45a29e;
-}
-
-main {
-  max-width: 800px;
-  margin: auto;
+  border: 2px solid #45a29e;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #45a29e;
 }
 
 p {
@@ -36,7 +46,7 @@ p {
 }
 
 a {
-  color: #ffffff;
+  color: #66fcf1;
   text-decoration: none;
 }
 
@@ -48,5 +58,57 @@ footer {
   text-align: center;
   margin-top: 4rem;
   font-size: 0.9rem;
-  color: #ffffff;
+  color: #888;
 }
+
+/* === Efek Bintang === */
+.sky {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* bintang kecil berkelip */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px white;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* bintang jatuh */
+.shooting {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 3px white;
+  animation: shoot 2s linear infinite;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translate(0, 0) rotate(-45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100vw, 100vh) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+/* Pastikan teks tetap terlihat di depan bintang */
+header, main, footer {
+  position: relative;
+  z-index: 2;
+  }
