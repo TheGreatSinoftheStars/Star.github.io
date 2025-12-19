@@ -5,116 +5,198 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>biodata SKY LIGHT!</title>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css" type="animation">
+  
   <style>
+    /* Reset & Background */
     body {
-     <div style="background-color: #000000;">
-      color: #45a29e;
+      background-color: #000000;
+      /* Warna font biru menyala */
+      color: #00f2ff; 
       font-family: 'Georgia', serif;
       margin: 0;
       padding: 2rem;
-      line-height: 2.0;
+      line-height: 1.8;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
     }
 
     header {
       text-align: center;
       margin-bottom: 2rem;
+      position: relative;
+      z-index: 10;
     }
 
     header h1 {
       font-size: 2.5rem;
       color: #ffffff;
+      text-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      position: relative;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 15px;
     }
 
     img {
       display: block;
       margin: 2rem auto;
       max-width: 100%;
-      height:100%;
-      border: 0px solid #45a29e;
-    }
-
-    main {
-      max-width: 800px;
-      margin: auto;
+      height: auto;
+      border: 2px solid #00f2ff;
+      box-shadow: 0 0 15px #00f2ff;
+      border-radius: 10px;
     }
 
     p {
-      text-align: justify;
-      margin-bottom: 1.5rem;
+      text-align: left;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+      padding-bottom: 5px;
     }
 
     a {
-      color: #66fcf1;
+      color: #ffffff;
       text-decoration: none;
+      font-weight: bold;
     }
 
     a:hover {
       text-decoration: underline;
+      color: #00f2ff;
     }
 
     footer {
       text-align: center;
       margin-top: 4rem;
       font-size: 0.9rem;
-      color: #888;
+      color: #00f2ff;
+      position: relative;
+      z-index: 10;
     }
+
+    /* --- ANIMASI BINTANG JATUH --- */
+    .sky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .shooting-star {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 2px;
+      background: linear-gradient(-45deg, #00f2ff, rgba(0, 0, 255, 0));
+      border-radius: 999px;
+      filter: drop-shadow(0 0 6px #00f2ff);
+      animation: tail 3000ms ease-in-out infinite, shooting 3000ms ease-in-out infinite;
+    }
+
+    .shooting-star::before, .shooting-star::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 1px);
+      right: 0;
+      height: 2px;
+      background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #00f2ff, rgba(0, 0, 255, 0));
+      transform: translateX(50%) rotateZ(45deg);
+      border-radius: 100%;
+      animation: shining 3000ms ease-in-out infinite;
+    }
+
+    .shooting-star::after {
+      transform: translateX(50%) rotateZ(-45deg);
+    }
+
+    @keyframes tail {
+      0% { width: 0; }
+      30% { width: 100px; }
+      100% { width: 0; }
+    }
+
+    @keyframes shining {
+      0% { width: 0; }
+      50% { width: 30px; }
+      100% { width: 0; }
+    }
+
+    @keyframes shooting {
+      0% { transform: translateX(0) translateY(0) rotate(25deg); }
+      100% { transform: translateX(-1000px) translateY(1000px) rotate(25deg); }
+    }
+
+    /* Penempatan acak untuk beberapa bintang */
+    .shooting-star:nth-child(1) { top: 0; right: 0; animation-delay: 0s; }
+    .shooting-star:nth-child(2) { top: 0; right: 200px; animation-delay: 1s; }
+    .shooting-star:nth-child(3) { top: 100px; right: 0; animation-delay: 2s; }
+    .shooting-star:nth-child(4) { top: 300px; right: 100px; animation-delay: 1.5s; }
+    .shooting-star:nth-child(5) { top: 50px; right: 400px; animation-delay: 2.5s; }
+
   </style>
 </head>
 <body>
 
+  <!-- Background Bintang Jatuh -->
+  <div class="sky">
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+  </div>
+
   <header>
-    <h1>biodata</h1>
+    <h1>BIODATA</h1>
   </header>
 
   <main>
-    <a href="https://freeimage.host/i/Kk1RS07">
-      <img src="https://iili.io/Kk1RS07.md.jpg" alt="Kk1RS07.md.jpg" border="0">
+    <a href="https://freeimage.host/i/Kk1RS07" target="_blank">
+      <img src="https://iili.io/Kk1RS07.md.jpg" alt="Bintang Mahardin">
     </a>
 
-    <p>
-     Name    : Bintang Mahardin Rahmatullah 
-    <p>
-    <p>
-     residence :!¡∷𝙹⍊╎リᓭ╎  ʖᒷリ⊣ꖌ⚍ꖎ⚍,  ꖌᔑʖ⚍!¡ᔑℸ ̣ ᒷリ  ∷ᒷ⋮ᔑリ⊣  ꖎᒷʖ𝙹リ⊣,  ꖌᒷᓵᔑᒲᔑℸ ̣ ᔑリ  ᓵ⚍∷⚍!¡  ℸ ̣ ╎ᒲ⚍∷,    ꖌᒷꖎ⚍∷ᔑ⍑ᔑリ  ᓭ⚍ꖌᔑ∷ᔑ⋮ᔑ
-    <p>
-    <p>
-     date of birth: 06-10-2009
-    <p>
-    <p>
-     age         : 15
-    <p>
+    <p><strong>Name:</strong> Bintang Mahardin Rahmatullah</p>
+    
+    <p><strong>Residence:</strong> !¡∷𝙹⍊╎リᓭ╎  ʖᒷリ⊣ꖌ⚍ꖎ⚍,  ꖌᔑʖ⚍!¡ᔑℸ ̣ ᒷリ  ∷ᒷ⋮ᔑリ⊣  ꖎᒷʖ𝙹リ⊣,  ꖌᒷᓵᔑᒲᔑℸ ̣ ᔑリ  ᓵ⚍∷⚍!¡  ℸ ̣ ╎ᒲ⚍∷,    ꖌᒷꖎ⚍∷ᔑ⍑ᔑリ  ᓭ⚍ꖌᔑ∷ᔑ⋮ᔑ</p>
 
-    <p>
-     fav food : nasgor
-    <p>
-    <p>
-     fav drink :Mango juice and coffee 
-    <p>
-    <p> 
-     school    : sm̶p̶n̶ ̶3̶ ̶R̶e̶j̶a̶n̶g̶ ̶L̶e̶b̶o̶n̶g̶  
-     sma budi Utomo kota Bengkulu (ponpes alhuda)
-    <p>
-    <p>
-     fav color: black white and blue  
-   <p>
-   <p>
-     Hobby: hiding feelings or emotions 
-   <p>
-   <p>
-     advantages: fast response 
-   <p>
-   <p>
-     Instragram:@Bintangmhrdn_404    
-               :@chameleon_06109
-   <p>
-       
-     
+    <p><strong>Date of Birth:</strong> 06-10-2009</p>
+
+    <p><strong>Age:</strong> 15</p>
+
+    <p><strong>Fav Food:</strong> Nasgor</p>
+
+    <p><strong>Fav Drink:</strong> Mango juice and coffee</p>
+
+    <p><strong>School:</strong> <del>SMPN 3 Rejang Lebong</del><br> SMA Budi Utomo Kota Bengkulu (Ponpes Al-Huda)</p>
+
+    <p><strong>Fav Color:</strong> Black, White, and Blue</p>
+
+    <p><strong>Hobby:</strong> Hiding feelings or emotions</p>
+
+    <p><strong>Advantages:</strong> Fast response</p>
+
+    <p><strong>Instagram:</strong> <br>
+      <a href="https://instagram.com/Bintangmhrdn_404">@Bintangmhrdn_404</a><br>
+      <a href="https://instagram.com/chameleon_06109">@chameleon_06109</a>
+    </p>
   </main>
 
   <footer>
-    MAU TAU APA DI BALIK KOTAK DAN SEGITIGA? BUKA LAH LINK INI https://thegreatsinofthestars.github.io/-.gihub.io/
+    <p>MAU TAU APA DI BALIK KOTAK DAN SEGITIGA? BUKA LAH LINK INI:<br>
+    <a href="https://thegreatsinofthestars.github.io/-.gihub.io/">thegreatsinofthestars.github.io</a></p>
   </footer>
-<div class="sky" id="sky"></div>
+
 </body>
 </html>
