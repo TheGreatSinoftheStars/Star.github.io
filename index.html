@@ -1,202 +1,338 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>biodata SKY LIGHT!</title>
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>biodata SKY LIGHT!</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   
-  <style>
-    /* Reset & Background */
-    body {
-      background-color: #000000;
-      /* Warna font biru menyala */
-      color: #00f2ff; 
-      font-family: 'Georgia', serif;
-      margin: 0;
-      padding: 2rem;
-      line-height: 1.8;
-      overflow-x: hidden;
-      position: relative;
-      min-height: 100vh;
-    }
+    <!-- Menambahkan Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+    <style>
+        /* Reset & Background */
+        body {
+            background-color: #000000;
+            color: #00f2ff; 
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            overflow-x: hidden;
+            min-height: 100vh;
+            cursor: pointer;
+        }
 
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 10;
-    }
+        header {
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+        }
 
-    header h1 {
-      font-size: 2.5rem;
-      color: #ffffff;
-      text-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff;
-      text-transform: uppercase;
-      letter-spacing: 5px;
-    }
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: #ffffff;
+            text-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
 
-    main {
-      max-width: 800px;
-      margin: auto;
-      position: relative;
-      z-index: 10;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 15px;
-    }
+        main {
+            max-width: 800px;
+            margin: auto;
+            position: relative;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            margin-bottom: 50px;
+        }
 
-    img {
-      display: block;
-      margin: 2rem auto;
-      max-width: 100%;
-      height: auto;
-      border: 2px solid #00f2ff;
-      box-shadow: 0 0 15px #00f2ff;
-      border-radius: 10px;
-    }
+        img {
+            display: block;
+            margin: 2rem auto;
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #00f2ff;
+            box-shadow: 0 0 15px #00f2ff;
+            border-radius: 10px;
+        }
 
-    p {
-      text-align: left;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid rgba(0, 242, 255, 0.2);
-      padding-bottom: 5px;
-    }
+        p {
+            text-align: left;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+            padding-bottom: 5px;
+        }
 
-    a {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: bold;
-    }
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-    a:hover {
-      text-decoration: underline;
-      color: #00f2ff;
-    }
+        a:hover {
+            text-decoration: underline;
+            color: #00f2ff;
+        }
 
-    footer {
-      text-align: center;
-      margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #00f2ff;
-      position: relative;
-      z-index: 10;
-    }
+        /* --- INTRO SCREEN --- */
+        #intro-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #001f1f 0%, #000000 100%);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+        }
 
-    /* --- ANIMASI BINTANG JATUH --- */
-    .sky {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-    }
+        #main-app {
+            padding-top: 20px;
+        }
 
-    .shooting-star {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      height: 2px;
-      background: linear-gradient(-45deg, #00f2ff, rgba(0, 0, 255, 0));
-      border-radius: 999px;
-      filter: drop-shadow(0 0 6px #00f2ff);
-      animation: tail 3000ms ease-in-out infinite, shooting 3000ms ease-in-out infinite;
-    }
+        .neon-text {
+            text-shadow: 0 0 5px #00f2ff, 0 0 10px #00f2ff;
+            font-family: 'Orbitron', sans-serif;
+        }
 
-    .shooting-star::before, .shooting-star::after {
-      content: '';
-      position: absolute;
-      top: calc(50% - 1px);
-      right: 0;
-      height: 2px;
-      background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #00f2ff, rgba(0, 0, 255, 0));
-      transform: translateX(50%) rotateZ(45deg);
-      border-radius: 100%;
-      animation: shining 3000ms ease-in-out infinite;
-    }
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
 
-    .shooting-star::after {
-      transform: translateX(50%) rotateZ(-45deg);
-    }
+        @keyframes blink { 50% { opacity: 0; } }
 
-    @keyframes tail {
-      0% { width: 0; }
-      30% { width: 100px; }
-      100% { width: 0; }
-    }
+        /* --- TOMBOL MUSIK --- */
+        .music-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
 
-    @keyframes shining {
-      0% { width: 0; }
-      50% { width: 30px; }
-      100% { width: 0; }
-    }
+        #music-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(0, 242, 255, 0.1);
+            border: 2px solid #00f2ff;
+            color: #00f2ff;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
 
-    @keyframes shooting {
-      0% { transform: translateX(0) translateY(0) rotate(25deg); }
-      100% { transform: translateX(-1000px) translateY(1000px) rotate(25deg); }
-    }
+        .music-pulse {
+            animation: pulse-animation 2s infinite;
+        }
 
-    /* Penempatan acak untuk beberapa bintang */
-    .shooting-star:nth-child(1) { top: 0; right: 0; animation-delay: 0s; }
-    .shooting-star:nth-child(2) { top: 0; right: 200px; animation-delay: 1s; }
-    .shooting-star:nth-child(3) { top: 100px; right: 0; animation-delay: 2s; }
-    .shooting-star:nth-child(4) { top: 300px; right: 100px; animation-delay: 1.5s; }
-    .shooting-star:nth-child(5) { top: 50px; right: 400px; animation-delay: 2.5s; }
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0px rgba(0, 242, 255, 0.7); }
+            100% { box-shadow: 0 0 0 15px rgba(0, 242, 255, 0); }
+        }
 
-  </style>
+        /* --- ANIMASI BINTANG JATUH --- */
+        .sky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .shooting-star {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(-45deg, #00f2ff, rgba(0, 0, 255, 0));
+            filter: drop-shadow(0 0 6px #00f2ff);
+            animation: tail 3000ms ease-in-out infinite, shooting 3000ms ease-in-out infinite;
+        }
+
+        @keyframes tail { 0%, 100% { width: 0; } 30% { width: 100px; } }
+        @keyframes shooting {
+            0% { transform: translateX(0) translateY(0) rotate(25deg); }
+            100% { transform: translateX(-1000px) translateY(1000px) rotate(25deg); }
+        }
+
+        .shooting-star:nth-child(1) { top: 10%; right: 10%; animation-delay: 0s; }
+        .shooting-star:nth-child(2) { top: 20%; right: 40%; animation-delay: 1s; }
+        .shooting-star:nth-child(3) { top: 50%; right: 20%; animation-delay: 2s; }
+
+        /* Button Style */
+        .visit-btn {
+            padding: 12px 30px;
+            background: transparent;
+            border: 1px solid #00f2ff;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .visit-btn:hover {
+            background: #00f2ff;
+            color: black;
+            box-shadow: 0 0 20px #00f2ff;
+        }
+
+        footer { text-align: center; padding-bottom: 2rem; }
+        .hidden { display: none !important; }
+    </style>
 </head>
-<body>
+<body onclick="autoPlayMusic()">
 
-  <!-- Background Bintang Jatuh -->
-  <div class="sky">
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-  </div>
+    <!-- Audio Element -->
+    <audio id="bg-music" loop>
+        <source src="BINTANG.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
-  <header>
-    <h1>BIODATA</h1>
-  </header>
+    <!-- Intro Screen -->
+    <div id="intro-screen">
+        <h1 class="font-tech text-4xl md:text-7xl font-bold text-white mb-4 tracking-widest neon-text">
+            about <span id="typing-text" class="typing-cursor"></span>
+        </h1>
+        <button onclick="enterSite()" class="visit-btn">
+            ENTER BIODATA
+        </button>
+    </div>
 
-  <main>
-    <a href="https://freeimage.host/i/Kk1RS07" target="_blank">
-      <img src="https://iili.io/Kk1RS07.md.jpg" alt="Bintang Mahardin">
-    </a>
+    <!-- Main Content -->
+    <div id="main-app" class="hidden opacity-0 transition-opacity duration-1000">
+        
+        <div class="music-container">
+            <button onclick="toggleMusic()" id="music-btn" title="Toggle Music">
+                <i id="music-icon" class="fas fa-play"></i>
+            </button>
+        </div>
 
-    <p><strong>Name:</strong> Bintang Mahardin Rahmatullah</p>
-    
-    <p><strong>Residence:</strong> !¡∷𝙹⍊╎リᓭ╎  ʖᒷリ⊣ꖌ⚍ꖎ⚍,  ꖌᔑʖ⚍!¡ᔑℸ ̣ ᒷリ  ∷ᒷ⋮ᔑリ⊣  ꖎᒷʖ𝙹リ⊣,  ꖌᒷᓵᔑᒲᔑℸ ̣ ᔑリ  ᓵ⚍∷⚍!¡  ℸ ̣ ╎ᒲ⚍∷,    ꖌᒷꖎ⚍∷ᔑ⍑ᔑリ  ᓭ⚍ꖌᔑ∷ᔑ⋮ᔑ</p>
+        <div class="sky">
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+        </div>
 
-    <p><strong>Date of Birth:</strong> 06-10-2009</p>
+        <header>
+            <h1>BIODATA</h1>
+        </header>
 
-    <p><strong>Age:</strong> 15</p>
+        <main>
+            <a href="https://freeimage.host/i/Kk1RS07" target="_blank">
+                <img src="https://iili.io/Kk1RS07.md.jpg" alt="Bintang Mahardin">
+            </a>
 
-    <p><strong>Fav Food:</strong> Nasgor</p>
+            <p><strong>Name:</strong> Bintang Mahardin Rahmatullah</p>
+            <p><strong>Residence:</strong> !¡∷𝙹⍊╎リᓭ╎  ʖᒷリ⊣ꖌ⚍ꖎ⚍,  ꖌᔑʖ⚍!¡ᔑℸ ̣ ᒷリ  ∷ᒷ⋮ᔑリ⊣  ꖎᒷʖ𝙹リ⊣,  ꖌᒷᓵᔑᒲᔑℸ ̣ ᔑリ  ᓵ⚍∷⚍!¡  ℸ ̣ ╎ᒲ⚍∷,    ꖌᒷꖎ⚍∷ᔑ⍑ᔑリ  ᓭ⚍ꖌᔑ∷ᔑ⋮ᔑ</p>
+            <p><strong>Date of Birth:</strong> 06-10-2009</p>
+            <p><strong>Age:</strong> 15</p>
+            <p><strong>Fav Food:</strong> Nasgor</p>
+            <p><strong>Fav Drink:</strong> Mango juice and coffee</p>
+            <p><strong>School:</strong> <del>SMPN 3 Rejang Lebong</del><br> SMA Budi Utomo Kota Bengkulu (Ponpes Al-Huda)</p>
+            <p><strong>Fav Color:</strong> Black, White, and Blue</p>
+            <p><strong>Hobby:</strong> Hiding feelings or emotions</p>
+            <p><strong>Advantages:</strong> Fast response</p>
+            <p><strong>Instagram:</strong> <br>
+                <a href="https://instagram.com/Bintangmhrdn_404">@Bintangmhrdn_404</a><br>
+                <a href="https://instagram.com/chameleon_06109">@chameleon_06109</a>
+            </p>
+        </main>
 
-    <p><strong>Fav Drink:</strong> Mango juice and coffee</p>
+        <footer>
+            <p>:?¿?¿?¿?<br>
+            <a href="https://thegreatsinofthestars.github.io/-.gihub.io/">‽‽</a></p>
+        </footer>
+    </div>
 
-    <p><strong>School:</strong> <del>SMPN 3 Rejang Lebong</del><br> SMA Budi Utomo Kota Bengkulu (Ponpes Al-Huda)</p>
+    <script>
+        // --- TYPEWRITER EFFECT ---
+        const textToType = "me?";
+        const typingElement = document.getElementById('typing-text');
+        let i = 0;
 
-    <p><strong>Fav Color:</strong> Black, White, and Blue</p>
+        function typeWriter() {
+            if (i < textToType.length) {
+                typingElement.innerHTML += textToType.charAt(i);
+                i++;
+                setTimeout(typeWriter, 150);
+            }
+        }
+        window.onload = typeWriter;
 
-    <p><strong>Hobby:</strong> Hiding feelings or emotions</p>
+        // --- MUSIC LOGIC ---
+        let isPlaying = false;
+        const audio = document.getElementById('bg-music');
+        const btn = document.getElementById('music-btn');
+        const icon = document.getElementById('music-icon');
 
-    <p><strong>Advantages:</strong> Fast response</p>
+        function autoPlayMusic() {
+            if (!isPlaying) {
+                startMusic();
+            }
+        }
 
-    <p><strong>Instagram:</strong> <br>
-      <a href="https://instagram.com/Bintangmhrdn_404">@Bintangmhrdn_404</a><br>
-      <a href="https://instagram.com/chameleon_06109">@chameleon_06109</a>
-    </p>
-  </main>
+        function startMusic() {
+            audio.play().then(() => {
+                isPlaying = true;
+                if(icon) icon.className = 'fas fa-pause';
+                if(btn) btn.classList.add('music-pulse');
+            }).catch(err => console.log("Menunggu klik user..."));
+        }
 
-  <footer>
-    <p>81?:<br>
-    <a href="https://thegreatsinofthestars.github.io/-.gihub.io/">????????????</a></p>
-  </footer>
+        function toggleMusic() {
+            event.stopPropagation();
+            if (isPlaying) {
+                audio.pause();
+                icon.className = 'fas fa-play';
+                btn.classList.remove('music-pulse');
+                isPlaying = false;
+            } else {
+                startMusic();
+            }
+        }
 
+        function enterSite() {
+            const intro = document.getElementById('intro-screen');
+            const mainApp = document.getElementById('main-app');
+            
+            startMusic();
+
+            intro.style.transform = 'translateY(-100%)';
+            intro.style.opacity = '0';
+            
+            setTimeout(() => {
+                intro.classList.add('hidden');
+                mainApp.classList.remove('hidden');
+                setTimeout(() => { mainApp.style.opacity = '1'; }, 50);
+            }, 800);
+        }
+
+        // Matikan musik jika tab disembunyikan
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                audio.pause();
+            } else if (isPlaying) {
+                audio.play();
+            }
+        });
+    </script>
 </body>
 </html>
